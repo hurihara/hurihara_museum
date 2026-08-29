@@ -54,8 +54,14 @@ museum-site/
 
 - [x] ファイル構成
 - [x] トップページ(index.html / css/top.css / js/top.js)
-- [ ] 個展ページ
+- [x] 個展ページ(gallery.html / css/gallery.css / js/gallery.js / data/works.js)
 - [ ] キャラクター設定集ページ
 - [ ] 机探索ゲームページ
 - [ ] お土産コーナーページ
 - [ ] 隠しページ
+
+## 個展ページ(gallery.html)の編集方法
+
+- **作品を追加/変更したいとき** → `data/works.js` だけ編集すればOK。HTML/CSS/JSは触らなくて大丈夫。
+- 画像は `assets/images/works/` フォルダに入れて、`works.js` の `image` にファイル名を書く。
+- 今入っている sample-01〜03.jpg は仮の画像です。実際のイラストに差し替えてください。
