@@ -1,0 +1,227 @@
+/* ==========================================================================
+   gallery.css
+   個展ページ(ROOM 01)専用のスタイル。
+   common.css を読み込んだ上で、このファイルを追加読み込みしてください。
+   ========================================================================== */
+
+/* ---- ページ見出し ---- */
+.gallery-intro {
+  text-align: center;
+  padding: 2.5rem 1.25rem 0;
+}
+
+.gallery-intro__eyebrow {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.gallery-intro__title {
+  margin-top: 0.8rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  letter-spacing: 0.1em;
+  color: var(--color-cream);
+}
+
+.gallery-intro__lead {
+  margin-top: 1rem;
+  max-width: 520px;
+  margin-inline: auto;
+  font-size: 0.85rem;
+  color: var(--color-cream-soft);
+}
+
+/* ---- 作品グリッド ---- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* 額縁っぽく見せるためのカード */
+.artwork-card {
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: left;
+  color: inherit;
+}
+
+.artwork-card__frame {
+  position: relative;
+  padding: 0.6rem;
+  background: linear-gradient(160deg, var(--color-bg-panel), var(--color-bg-panel-2));
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-frame);
+  box-shadow: 0 10px 26px var(--color-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.artwork-card:hover .artwork-card__frame,
+.artwork-card:focus-visible .artwork-card__frame {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: 0 16px 32px var(--color-shadow);
+}
+
+.artwork-card__frame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  /* 作品画像が主役になるよう、額はできるだけ控えめに */
+}
+
+/* 作品名の小さなプレート(額の下の名札のイメージ) */
+.artwork-card__plate {
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+.artwork-card__plate-title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-cream);
+}
+
+.artwork-card__plate-year {
+  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-gold-dim);
+}
+
+/* ==========================================================================
+   作品詳細モーダル(展示キャプション風)
+   ========================================================================== */
+.artwork-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(6, 16, 15, 0.82);
+  backdrop-filter: blur(3px);
+
+  /* JSでopenクラスを付け外しして表示/非表示を切り替える */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.artwork-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.artwork-modal__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  max-height: 88vh;
+  width: 100%;
+  overflow-y: auto;
+  background: linear-gradient(170deg, var(--color-bg-panel), var(--color-bg-deep));
+  border: 1px solid var(--color-gold-dim);
+  border-radius: var(--radius-frame);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 720px) {
+  .artwork-modal__panel {
+    flex-direction: row;
+  }
+}
+
+.artwork-modal__image-wrap {
+  flex: 1 1 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.artwork-modal__image-wrap img {
+  max-height: 60vh;
+  width: auto;
+  margin-inline: auto;
+}
+
+/* ---- キャプション部分(美術館の解説プレート風) ---- */
+.artwork-modal__caption {
+  flex: 1 1 45%;
+  padding: 2rem 1.75rem;
+  border-top: 1px solid var(--color-line);
+}
+
+@media (min-width: 720px) {
+  .artwork-modal__caption {
+    border-top: none;
+    border-left: 1px solid var(--color-line);
+  }
+}
+
+.artwork-modal__label {
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold-dim);
+  text-transform: uppercase;
+}
+
+.artwork-modal__title {
+  margin-top: 0.6rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--color-cream);
+}
+
+.artwork-modal__meta {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--color-gold);
+}
+
+.artwork-modal__ornament {
+  width: 40px;
+  height: 1px;
+  margin: 1.2rem 0;
+  background: var(--color-gold-dim);
+}
+
+.artwork-modal__comment {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: var(--color-cream-soft);
+  white-space: pre-line; /* comment内の \n を改行として表示する */
+}
+
+.artwork-modal__close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--color-cream);
+  font-size: 1.1rem;
+  border: 1px solid var(--color-line);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.artwork-modal__close:hover,
+.artwork-modal__close:focus-visible {
+  background: rgba(0, 0, 0, 0.55);
+  border-color: var(--color-gold);
+}
