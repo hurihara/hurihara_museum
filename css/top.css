@@ -52,7 +52,7 @@
 .entrance__title {
   margin-top: 1rem;
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1rem, 1vw, 1rem);
   letter-spacing: 0.12em;
   line-height: 1.4;
   color: var(--color-cream);
