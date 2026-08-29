@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100フォロワッ記念展 | ふりはら美術館</title>
+  <meta name="description" content="100フォロワッ達成記念のオンライン美術館・個展サイトです。">
+
+  <!-- 明朝体・ゴシック体のWebフォント(不要であれば削除してOK) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 共通CSS → このページ専用CSSの順で読み込む -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/top.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       ヘッダー(館名・共通ナビゲーション)
+       他のページを作るときも、この header 部分をそのままコピーして
+       aria-current の付いているリンクだけ変える想定。
+       ============================================================ -->
+  <header class="site-header">
+    <p class="site-header__mark">Solo Exhibition Museum</p>
+    <p class="site-header__title">ふりはら美術館</p>
+
+    <nav class="main-nav" aria-label="館内案内">
+      <a href="index.html">エントランス</a>
+      <a href="gallery.html">個展</a>
+      <a href="characters.html">キャラクター設定集</a>
+      <a href="desk.html">机探索</a>
+      <a href="shop.html">お土産コーナー</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         エントランス(ヒーローエリア)
+         ============================================================ -->
+    <section class="entrance">
+      <div class="entrance__content">
+        <p class="entrance__eyebrow">Anniversary Exhibition</p>
+        <h1 class="entrance__title">
+          100フォロワッ記念展
+          <span>― ご来館ありがとうございます ―</span>
+        </h1>
+        <p class="entrance__lead">
+          <!-- ★ここの挨拶文はあとで自由に差し替えてください -->
+          日頃の応援への感謝を込めて、個人美術館を開館いたしました。
+          館内には個展・キャラクター資料・作者の机の探索など、
+          いくつかの展示室をご用意しております。ごゆっくりお楽しみください。
+        </p>
+      </div>
+
+      <button type="button" class="entrance__scroll-hint" aria-label="館内案内までスクロール">
+        SCROLL TO ENTER
+      </button>
+    </section>
+
+    <!-- ============================================================
+         館内案内(各コンテンツへのナビゲーションカード)
+         ★ページを追加するときは、この .hall-card を1つコピーして
+           href / room-no / title / desc を書き換えれば増やせます。
+         ============================================================ -->
+    <section id="hall-guide" class="hall-guide">
+      <h2 class="hall-guide__heading">館内案内</h2>
+      <div class="ornament-line"></div>
+
+      <div class="hall-guide__grid">
+
+        <a href="gallery.html" class="hall-card">
+          <span class="hall-card__room-no">ROOM 01</span>
+          <h3 class="hall-card__title">個展</h3>
+          <p class="hall-card__desc">これまでに描いたイラストを展示しています。作品をクリックすると詳細が見られます。</p>
+          <span class="hall-card__arrow">入室する →</span>
+        </a>
+
+        <a href="characters.html" class="hall-card">
+          <span class="hall-card__room-no">ROOM 02</span>
+          <h3 class="hall-card__title">キャラクター設定集</h3>
+          <p class="hall-card__desc">創作キャラクターのプロフィールや設定資料をまとめた資料室です。</p>
+          <span class="hall-card__arrow">入室する →</span>
+        </a>
+
+        <a href="desk.html" class="hall-card">
+          <span class="hall-card__room-no">ROOM 03</span>
+          <h3 class="hall-card__title">机探索</h3>
+          <p class="hall-card__desc">作者の机を探索できる小さなミニゲームです。気になるものをクリックしてみてください。</p>
+          <span class="hall-card__arrow">入室する →</span>
+        </a>
+
+        <a href="shop.html" class="hall-card">
+          <span class="hall-card__room-no">ROOM 04</span>
+          <h3 class="hall-card__title">お土産コーナー</h3>
+          <p class="hall-card__desc">記念の壁紙やアイコンなどを配布しているミュージアムショップです。</p>
+          <span class="hall-card__arrow">入室する →</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         簡単なお知らせ欄(任意・不要なら削除可)
+         ============================================================ -->
+    <section class="notice-board">
+      <p class="notice-board__title">開館にあたって</p>
+      <p class="notice-board__text">
+        <!-- ★ここも自由に書き換えてください -->
+        当館は個人が趣味で運営する架空の美術館です。展示内容は少しずつ増えていく予定ですので、
+        またお時間のあるときに遊びに来ていただけると嬉しいです。
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 ふりはら美術館. 100フォロワッ記念展.</p>
+  </footer>
+
+  <!-- 共通JS → このページ専用JSの順で読み込む -->
+  <script src="js/common.js"></script>
+  <script src="js/top.js"></script>
+</body>
+</html>

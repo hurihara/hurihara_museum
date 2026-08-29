@@ -1,0 +1,196 @@
+/* ==========================================================================
+   common.css
+   全ページ共通のスタイル(リセット・配色変数・ヘッダー/フッターなど)
+
+   ★配色を変えたいときは、このファイル冒頭の :root 変数だけ書き換えればOK。
+     他のCSSファイルはすべてこの変数を参照しています。
+   ========================================================================== */
+
+:root {
+  /* ---- 基本カラーパレット(深い青緑・生成り・金) ---- */
+  --color-bg-deep:      #0f2b2a;   /* 一番深い青緑(背景の基調) */
+  --color-bg-panel:     #163a38;   /* パネルやカードの背景 */
+  --color-bg-panel-2:   #1d4643;   /* パネルの明るめバリエーション */
+  --color-cream:        #f3ead8;   /* 生成り色(本文・余白) */
+  --color-cream-soft:   #e6dcc6;   /* 生成りの少し落ち着いたトーン */
+  --color-gold:         #c9a24b;   /* メインの金色 */
+  --color-gold-bright:  #e6c778;   /* 強調したいときの明るい金 */
+  --color-gold-dim:     #8a7237;   /* 罫線などに使う控えめな金 */
+  --color-line:         rgba(201, 162, 75, 0.35); /* 金の罫線・境界線 */
+  --color-shadow:       rgba(0, 0, 0, 0.45);
+
+  /* ---- フォント ---- */
+  --font-serif: "Shippori Mincho", "Noto Serif JP", serif;
+  --font-sans:  "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+
+  /* ---- 余白・角丸などの共通値 ---- */
+  --radius-frame: 4px;
+  --gap-section: clamp(2.5rem, 6vw, 5rem);
+}
+
+/* ---- リセット ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-deep);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  line-height: 1.8;
+  min-height: 100vh;
+  /* うっすらとした縦のグラデーションで「夜の館内」らしい奥行きを出す */
+  background-image:
+    radial-gradient(ellipse at top, rgba(230, 199, 120, 0.06), transparent 60%),
+    linear-gradient(180deg, var(--color-bg-deep) 0%, #0a1f1e 100%);
+  background-attachment: fixed;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   ヘッダー(サイト共通のロゴ・ナビ)
+   ※ index.html 以外の各ページを追加するとき、同じ header 構造を使い回す
+   ========================================================================== */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.site-header__mark {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.site-header__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  letter-spacing: 0.15em;
+  color: var(--color-cream);
+}
+
+/* ---- 共通ナビゲーション(館内案内) ---- */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  padding: 1rem;
+}
+
+.main-nav a {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.2rem;
+  color: var(--color-cream-soft);
+  transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--color-gold-bright);
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.main-nav a[aria-current="page"] {
+  color: var(--color-gold);
+}
+
+/* ==========================================================================
+   フッター
+   ========================================================================== */
+.site-footer {
+  margin-top: var(--gap-section);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-gold-dim);
+  border-top: 1px solid var(--color-line);
+}
+
+/* ==========================================================================
+   汎用パーツ
+   ========================================================================== */
+
+/* 金色の装飾罫線(見出しの下などに使う) */
+.ornament-line {
+  width: 60px;
+  height: 1px;
+  margin: 0.8rem auto;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* セクション共通の余白 */
+.section {
+  padding: var(--gap-section) 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* キャプション風テキスト(展示の説明などに流用) */
+.caption-text {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--color-cream-soft);
+  line-height: 1.9;
+}
+
+/* スクリーンリーダー専用テキスト */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
