@@ -194,3 +194,29 @@ button {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
 }
+
+/* ==========================================================================
+   カスタムカーソル(蠅モチーフ)
+   ここに書けば全ページに反映される。common.cssを読み込んでいる
+   ページなら、gallery.htmlでもcharacters.htmlでも自動で適用される。
+
+   ★自分のイラストに差し替えたいとき★
+   assets/images/common/cursor-default.png と cursor-hover.png を、
+   同じファイル名のまま自分の画像に上書きすればOK(コード変更不要)。
+   画像サイズは32px前後、背景透明のPNGがおすすめ。
+   ========================================================================== */
+
+/* 通常時:サイト全体の基本カーソル */
+body {
+  cursor: url("assets/images/common/cursor-default.png") 4 4, auto;
+}
+
+/* クリック/タップできる要素にホバーしたときのカーソル
+   (リンク・ボタン・カード類などをここにまとめて指定) */
+a,
+button,
+.hall-card,
+.artwork-card,
+[role="button"] {
+  cursor: url("assets/images/common/cursor-hover.png") 6 6, pointer;
+}
