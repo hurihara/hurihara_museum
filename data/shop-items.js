@@ -15,9 +15,9 @@ const shopItems = [
     id: "item-wallpaper-01",
     type: "壁紙",
     title: "100フォロワッ記念壁紙",     // ★差し替えてください
-    image: "assets/images/shop/wallpaper-01.jpg",
-    file: "assets/images/shop/wallpaper-01.jpg",
-    description: "PC・スマホ両対応のシンプルな記念壁紙です。ご自由にお使いください。",
+    image: "assets/images/shop/thankyou.webp",  // ★差し替えてください
+    file: "assets/images/shop/thankyou.webp",   // ★差し替えてください
+    description: "一応壁紙です。ご自由にお使いください。",
   },
   {
     id: "item-icon-01",
