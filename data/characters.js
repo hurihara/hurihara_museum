@@ -31,7 +31,7 @@ const characters = [
     name: "邪悪はら",
     reading: "じゃあくはら",
     catchcopy: "🍳🐱",
-    image: "assets/images/characters/sample-02.png",
+    image: "assets/images/characters/jaaku.webp",
     profile: [
       { label: "年齢", value: "ひみつ" },
       { label: "身長", value: "増減可能" },
