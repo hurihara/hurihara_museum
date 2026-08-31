@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個展 | ふりはら美術館</title>
+  <meta name="description" content="100フォロワー記念展・個展ページです。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="site-header__mark">Solo Exhibition Museum</p>
+    <p class="site-header__title">ふりはら美術館</p>
+
+    <nav class="main-nav" aria-label="館内案内">
+      <a href="index.html">エントランス</a>
+      <a href="gallery.html">個展</a>
+      <a href="characters.html">キャラクター設定集</a>
+      <a href="desk.html">机探索</a>
+      <a href="shop.html">お土産コーナー</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery-intro">
+      <p class="gallery-intro__eyebrow">Room 01</p>
+      <h1 class="gallery-intro__title">個展</h1>
+      <p class="gallery-intro__lead">
+        <!-- ★挨拶文はあとで自由に書き換えてください -->
+        これまでに描いたイラストを展示しています。作品をクリックすると、
+        タイトルや制作年、コメントをご覧いただけます。
+      </p>
+    </section>
+
+    <!-- ============================================================
+         作品グリッド
+         中身は js/gallery.js が data/works.js を読み込んで自動生成する。
+         このHTMLファイル自体は編集不要(作品を増やすときは data/works.js を編集)。
+         ============================================================ -->
+    <section class="section">
+      <div id="gallery-grid" class="gallery-grid">
+        <!-- ここに作品カードがJavaScriptで自動的に挿入されます -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 ふりはら美術館. 100フォロワー記念展.</p>
+  </footer>
+
+  <!-- ============================================================
+       作品詳細モーダル(展示キャプション風のポップアップ)
+       普段は非表示。カードをクリックすると js/gallery.js が
+       中身を書き換えて表示する。
+       ============================================================ -->
+  <div id="artwork-modal" class="artwork-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="artwork-modal__panel">
+      <button type="button" class="artwork-modal__close" aria-label="閉じる">×</button>
+
+      <div class="artwork-modal__image-wrap">
+        <img src="" alt="">
+      </div>
+
+      <div class="artwork-modal__caption">
+        <p class="artwork-modal__label">Caption</p>
+        <h2 class="artwork-modal__title"></h2>
+        <p class="artwork-modal__meta"></p>
+        <div class="artwork-modal__ornament"></div>
+        <p class="artwork-modal__comment"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <!-- 作品データ → 表示用スクリプト の順で読み込む -->
+  <script src="data/works.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

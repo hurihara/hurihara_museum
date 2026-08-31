@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お土産コーナー | ふりはら美術館</title>
+  <meta name="description" content="100フォロワー記念展・お土産コーナー(壁紙やアイコンの配布)ページです。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="site-header__mark">Solo Exhibition Museum</p>
+    <p class="site-header__title">ふりはら美術館</p>
+
+    <nav class="main-nav" aria-label="館内案内">
+      <a href="index.html">エントランス</a>
+      <a href="gallery.html">個展</a>
+      <a href="characters.html">キャラクター設定集</a>
+      <a href="desk.html">机探索</a>
+      <a href="shop.html">お土産コーナー</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="shop-intro">
+      <p class="shop-intro__eyebrow">Room 04</p>
+      <h1 class="shop-intro__title">お土産コーナー</h1>
+      <p class="shop-intro__lead">
+        <!-- ★挨拶文はあとで自由に書き換えてください -->
+        100フォロワッ記念の壁紙やアイコンを配布しています。
+        気に入ったものがあれば、ぜひお持ち帰りください。
+      </p>
+    </section>
+
+    <!-- ============================================================
+         配布物グリッド
+         中身は js/shop.js が data/shop-items.js を読み込んで自動生成する。
+         (配布物を増やすときは data/shop-items.js を編集)
+         ============================================================ -->
+    <section class="section">
+      <div id="shop-grid" class="shop-grid">
+        <!-- ここに配布カードがJavaScriptで自動的に挿入されます -->
+      </div>
+    </section>
+
+    <p class="shop-notice">
+      <!-- ★利用規約などはあとで自由に書き換えてください -->
+      配布物は個人利用を想定しています。再配布・商用利用については、
+      あらかじめご了承のうえご利用ください。
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 ふりはら美術館. 100フォロワー記念展.</p>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <!-- 配布物データ → 表示用スクリプト の順で読み込む -->
+  <script src="data/shop-items.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

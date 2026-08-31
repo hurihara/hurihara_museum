@@ -11,28 +11,36 @@
 const works = [
   {
     id: "work-01",                          // 他と重複しないIDならなんでもOK
-    title: "夜想",                           // 作品名(★差し替えてください)
-    year: "2024",                            // 制作年
-    image: "assets/images/works/sample-01.jpg", // 画像ファイルのパス
+    title: "ｲｰﾌﾁｬﾝ",                           // 作品名(★差し替えてください)
+    year: "2026",                            // 制作年
+    image: "assets/images/works/if.webp", // 画像ファイルのパス
     // キャプション(展示解説)。改行したい場合は "" の中で \n を使う
     comment:
-      "静けさの中に佇む一枚。夜の空気感を意識して描きました。",
+      "初めて色付きでｲｰﾌﾁｬﾝを描いた思い出",
   },
   {
     id: "work-02",
-    title: "灯りの記憶",
-    year: "2025",
-    image: "assets/images/works/sample-02.jpg",
+    title: "ミント・エスケープ",
+    year: "2026",
+    image: "assets/images/works/nissou.webp",
     comment:
-      "光と影のコントラストをテーマにした作品です。",
+      "空の81番地のｲｰﾌﾁｬﾝです。\nｲｰﾌﾁｬﾝは業務外ぼーっとしてそうでいい",
   },
   {
     id: "work-03",
-    title: "無題",
-    year: "2025",
-    image: "assets/images/works/sample-03.jpg",
+    title: "ばれちゃった！",
+    year: "2026",
+    image: "assets/images/works/geltu.webp",
     comment:
-      "衝動的に描いた一枚。あえてタイトルはつけていません。",
+      "🍳🐱",
+  },
+ {
+    id: "work-04",
+    title: "thanks",
+    year: "2026",
+    image: "assets/images/works/thanks.webp",
+    comment:
+      "フォロワー様100人達成記念に描いた作品です。\nこれからも応援よろしくお願いします。",
   },
 
   // ↓ ここに新しい作品を追加していく(コピペ用テンプレート)

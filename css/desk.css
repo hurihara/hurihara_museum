@@ -1,0 +1,149 @@
+/* ==========================================================================
+   desk.css
+   机探索ゲームページ(ROOM 03)専用のスタイル。
+   common.css を読み込んだ上で、このファイルを追加読み込みしてください。
+   ========================================================================== */
+
+.desk-intro {
+  text-align: center;
+  padding: 2.5rem 1.25rem 0;
+}
+
+.desk-intro__eyebrow {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.desk-intro__title {
+  margin-top: 0.8rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  letter-spacing: 0.1em;
+  color: var(--color-cream);
+}
+
+.desk-intro__lead {
+  margin-top: 1rem;
+  max-width: 520px;
+  margin-inline: auto;
+  font-size: 0.85rem;
+  color: var(--color-cream-soft);
+}
+
+/* 発見数カウンター */
+.desk-progress {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-gold-dim);
+}
+
+/* ==========================================================================
+   机エリア本体
+   ========================================================================== */
+.desk-stage {
+  position: relative;
+  max-width: 900px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.25rem;
+}
+
+/* 机の絵と、クリック領域(オブジェクト)を重ねるための基準ボックス */
+.desk-stage__frame {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-frame);
+  overflow: visible;
+  border: 1px solid var(--color-line);
+  box-shadow: 0 16px 40px var(--color-shadow);
+}
+
+.desk-stage__frame img {
+  width: 100%;
+  display: block;
+}
+
+/* ---- 机の上のオブジェクト(クリックできる場所) ---- */
+.desk-object {
+  position: absolute;
+  border-radius: 6px;
+  background: rgba(230, 199, 120, 0.12);
+  border: 1px dashed rgba(201, 162, 75, 0.55);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.desk-object:hover,
+.desk-object:focus-visible {
+  background: rgba(230, 199, 120, 0.25);
+  transform: scale(1.03);
+}
+
+/* 隠しオブジェクトは通常時、枠も背景も完全に透明にする */
+.desk-object.is-hidden {
+  background: transparent;
+  border: none;
+}
+
+/* 一度見つけた隠しオブジェクトは、うっすら金色の光を残す
+   (再訪したときに「あ、ここにあった」と分かるように) */
+.desk-object.is-hidden.is-found {
+  background: radial-gradient(circle, rgba(230, 199, 120, 0.18), transparent 70%);
+}
+
+/* ---- クリック時に出す吹き出し ---- */
+.desk-tooltip {
+  position: absolute;
+  z-index: 20;
+  max-width: 260px;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(160deg, var(--color-bg-panel), var(--color-bg-panel-2));
+  border: 1px solid var(--color-gold-dim);
+  border-radius: var(--radius-frame);
+  box-shadow: 0 12px 28px var(--color-shadow);
+
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.desk-tooltip.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.desk-tooltip__title {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--color-gold-bright);
+}
+
+.desk-tooltip__message {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--color-cream-soft);
+  white-space: pre-line;
+}
+
+.desk-tooltip__close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-gold-dim);
+}
+
+/* 発見演出:短い時間だけキラッと光るアニメーション */
+@keyframes desk-found-sparkle {
+  0%   { box-shadow: 0 0 0 0 rgba(230, 199, 120, 0.6); }
+  100% { box-shadow: 0 0 0 24px rgba(230, 199, 120, 0); }
+}
+
+.desk-object.is-sparkling {
+  animation: desk-found-sparkle 0.7s ease-out;
+}

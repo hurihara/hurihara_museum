@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>机探索 | ふりはら美術館</title>
+  <meta name="description" content="100フォロワー記念展・作者の机を探索するミニゲームページです。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/desk.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="site-header__mark">Solo Exhibition Museum</p>
+    <p class="site-header__title">ふりはら美術館</p>
+
+    <nav class="main-nav" aria-label="館内案内">
+      <a href="index.html">エントランス</a>
+      <a href="gallery.html">個展</a>
+      <a href="characters.html">キャラクター設定集</a>
+      <a href="desk.html">机探索</a>
+      <a href="shop.html">お土産コーナー</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="desk-intro">
+      <p class="desk-intro__eyebrow">Room 03</p>
+      <h1 class="desk-intro__title">机探索</h1>
+      <p class="desk-intro__lead">
+        <!-- ★挨拶文はあとで自由に書き換えてください -->
+        作者の机を再現してみました。気になるものをクリックしてみてください。
+        中には、簡単には見つからないものも隠れているかもしれません。
+      </p>
+      <p id="desk-progress" class="desk-progress"><!-- JSが発見数をここに表示します --></p>
+    </section>
+
+    <!-- ============================================================
+         机エリア
+         背景画像の上に、js/desk.js が data/desk-objects.js の座標を
+         もとにクリック領域を自動で重ねて配置する。
+         ============================================================ -->
+    <section class="desk-stage">
+      <div id="desk-frame" class="desk-stage__frame">
+        <img src="assets/images/desk/desk.webp" alt="作者の机のイラスト">
+        <!-- ここにJavaScriptでオブジェクト(クリック領域)と吹き出しが挿入されます -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 ふりはら美術館. 100フォロワー記念展.</p>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <!-- オブジェクトデータ → 表示用スクリプト の順で読み込む -->
+  <script src="data/desk-objects.js"></script>
+  <script src="js/desk.js"></script>
+</body>
+</html>

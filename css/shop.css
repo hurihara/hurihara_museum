@@ -1,0 +1,129 @@
+/* ==========================================================================
+   shop.css
+   お土産コーナーページ(ROOM 04)専用のスタイル。
+   common.css を読み込んだ上で、このファイルを追加読み込みしてください。
+   ========================================================================== */
+
+.shop-intro {
+  text-align: center;
+  padding: 2.5rem 1.25rem 0;
+}
+
+.shop-intro__eyebrow {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.shop-intro__title {
+  margin-top: 0.8rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  letter-spacing: 0.1em;
+  color: var(--color-cream);
+}
+
+.shop-intro__lead {
+  margin-top: 1rem;
+  max-width: 520px;
+  margin-inline: auto;
+  font-size: 0.85rem;
+  color: var(--color-cream-soft);
+}
+
+/* ---- 配布物グリッド ---- */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, var(--color-bg-panel), var(--color-bg-panel-2));
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-frame);
+  box-shadow: 0 10px 26px var(--color-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.shop-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+}
+
+.shop-card__thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.shop-card__body {
+  padding: 1.2rem 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* 配布物の種類タグ(壁紙・アイコンなど) */
+.shop-card__type {
+  align-self: flex-start;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold-dim);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
+
+.shop-card__title {
+  margin-top: 0.7rem;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-cream);
+}
+
+.shop-card__desc {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-cream-soft);
+  flex: 1;
+}
+
+/* ---- ダウンロードボタン ---- */
+.shop-card__download {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--color-bg-deep);
+  background: linear-gradient(120deg, var(--color-gold), var(--color-gold-bright));
+  border-radius: var(--radius-frame);
+  transition: filter 0.25s ease;
+}
+
+.shop-card__download:hover,
+.shop-card__download:focus-visible {
+  filter: brightness(1.08);
+}
+
+/* ---- ショップ注意書き ---- */
+.shop-notice {
+  max-width: 640px;
+  margin: 3rem auto 0;
+  padding: 0 1.25rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-gold-dim);
+  line-height: 1.9;
+}
