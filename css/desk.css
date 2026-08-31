@@ -56,7 +56,7 @@
   position: relative;
   width: 100%;
   border-radius: var(--radius-frame);
-  overflow: visible;
+  overflow: hidden;
   border: 1px solid var(--color-line);
   box-shadow: 0 16px 40px var(--color-shadow);
 }
@@ -93,10 +93,14 @@
   background: radial-gradient(circle, rgba(230, 199, 120, 0.18), transparent 70%);
 }
 
-/* ---- クリック時に出す吹き出し ---- */
+/* ---- クリック時に出す吹き出し ----
+   #desk-frame が overflow:hidden なので、吹き出しは
+   js/desk.js によって document.body 直下に追加され、
+   ページ全体に対する絶対位置(position: absolute)で表示される
+   (枠内には収まらず、ページと一緒にスクロールする)。 */
 .desk-tooltip {
   position: absolute;
-  z-index: 20;
+  z-index: 200;
   max-width: 260px;
   padding: 1rem 1.1rem;
   background: linear-gradient(160deg, var(--color-bg-panel), var(--color-bg-panel-2));
@@ -136,6 +140,22 @@
   right: 0.5rem;
   font-size: 0.9rem;
   color: var(--color-gold-dim);
+}
+
+/* ==========================================================================
+   スマホ幅のときは、吹き出しの位置計算をやめて画面下に固定表示する
+   (js側でも画面内に収まるよう計算しているが、スマホでは
+   常に画面下部に統一したほうが見やすいため、ここで上書きする)
+   ========================================================================== */
+@media (max-width: 600px) {
+  .desk-tooltip {
+    left: 1rem !important;
+    right: 1rem;
+    bottom: 1rem;
+    top: auto !important;
+    max-width: none;
+    width: auto;
+  }
 }
 
 /* 発見演出:短い時間だけキラッと光るアニメーション */

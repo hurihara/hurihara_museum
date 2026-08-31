@@ -63,9 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
   updateProgress();
 
   // ---- 2. 吹き出しを表示する ----
+  // 机の画像の枠(#desk-frame)は角丸のため overflow:hidden にしてあるので、
+  // その中に吹き出しを置くと下端・右端のオブジェクトで見切れてしまう。
+  // そのため吹き出しは document.body に直接追加し、
+  // クリックされたオブジェクトの画面上の位置から座標を計算して表示する。
   function showTooltip(obj, anchorEl) {
-    // 前の吹き出しが残っていたら消す
-    const existing = frame.querySelector(".desk-tooltip");
+    const existing = document.querySelector(".desk-tooltip");
     if (existing) existing.remove();
 
     const tooltip = document.createElement("div");
@@ -76,11 +79,41 @@ document.addEventListener("DOMContentLoaded", () => {
       <p class="desk-tooltip__message">${obj.message}</p>
     `;
 
-    // オブジェクトのすぐ下あたりに表示する
-    tooltip.style.left = obj.x + "%";
-    tooltip.style.top = (obj.y + obj.height) + "%";
+    document.body.appendChild(tooltip);
 
-    frame.appendChild(tooltip);
+    // スマホ幅(css側で position:fixed & 画面下固定にしている)のときは
+    // 座標計算は不要なので、ここでは何もしない。
+    const isMobileLayout = window.matchMedia("(max-width: 600px)").matches;
+
+    if (!isMobileLayout) {
+      // クリックされたオブジェクトの画面上の位置を取得
+      // (吹き出しは position: absolute なので、座標はページ全体基準。
+      //  現在のスクロール量を足してページ上の絶対位置に変換する)
+      const rect = anchorEl.getBoundingClientRect();
+      const tooltipWidth = tooltip.offsetWidth || 260;
+      const tooltipHeight = tooltip.offsetHeight || 100;
+      const margin = 12; // 画面端からの最低余白
+
+      // 基本位置:オブジェクトの少し下・左揃え
+      let left = rect.left + window.scrollX;
+      let top = rect.bottom + window.scrollY + 8;
+
+      // 右端からはみ出す場合は左にずらす(画面幅基準で判定)
+      if (rect.left + tooltipWidth > window.innerWidth - margin) {
+        left = window.scrollX + window.innerWidth - tooltipWidth - margin;
+      }
+      // 下端からはみ出す場合は、オブジェクトの上側に表示する(画面高さ基準で判定)
+      if (rect.bottom + 8 + tooltipHeight > window.innerHeight - margin) {
+        top = rect.top + window.scrollY - tooltipHeight - 8;
+      }
+      // 左端・上端からはみ出さないように保険
+      if (left < window.scrollX + margin) left = window.scrollX + margin;
+      if (top < window.scrollY + margin) top = window.scrollY + margin;
+
+      tooltip.style.left = left + "px";
+      tooltip.style.top = top + "px";
+    }
+
     requestAnimationFrame(() => tooltip.classList.add("is-open"));
 
     tooltip.querySelector(".desk-tooltip__close").addEventListener("click", () => {
@@ -93,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isObject = event.target.closest(".desk-object");
     const isTooltip = event.target.closest(".desk-tooltip");
     if (!isObject && !isTooltip) {
-      const existing = frame.querySelector(".desk-tooltip");
+      const existing = document.querySelector(".desk-tooltip");
       if (existing) existing.remove();
     }
   });
