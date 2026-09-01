@@ -36,7 +36,7 @@ const characters = [
       { label: "年齢", value: "ひみつ" },
       { label: "身長", value: "増減可能" },
     ],
-    description: "フライパンを盗んで集めるのが趣味の邪悪な怪異。",
+    description: "フライパンを盗んで集めるのが趣味の邪悪な怪異。\nデザイン:腹呼吸",
   },
 
   {
