@@ -42,6 +42,22 @@ const works = [
     comment:
       "フォロワー様100人達成記念に描いた作品です。\nこれからも応援よろしくお願いします。",
   },
+  {
+    id: "work-05",
+    title: "初音ミク生誕祭2026",
+    year: "2026",
+    image: "assets/images/works/miku_birthday.webp",
+    comment:
+      "ミクさんのお誕生日に描いた絵",
+  },
+  {
+    id: "work-06",
+    title: "無題",
+    year: "2026",
+    image: "assets/images/works/kaen.webp",
+    comment:
+      "OCの華琬を描いたやつ\n華琬かわいい",
+  },
 
   // ↓ ここに新しい作品を追加していく(コピペ用テンプレート)
   // {
