@@ -64,6 +64,54 @@ const characters = [
     ],
     description: "空の81番地の庭師として働く、適当な性格の人物。\n人への配慮があんまりないうるさい人物。",
   },
+  {
+    id: "char-05",
+    name: "リン",
+    reading: "りん",
+    catchcopy: "四遊の闇医者",
+    image: "assets/images/characters/rin.webp",
+    profile: [
+      { label: "年齢", value: "不明" },
+      { label: "身長", value: "160cm" },
+    ],
+    description: "うさちゃん闇医者。なんだかんだ言いつつ治療はちゃんとしてくれる。\n創作の中の四人組、四遊の一人。",
+  },
+  {
+    id: "char-06",
+    name: "華琬",
+    reading: "かえん",
+    catchcopy: "四遊の毒物使い",
+    image: "assets/images/characters/kaenchan.webp",
+    profile: [
+      { label: "年齢", value: "20代" },
+      { label: "身長", value: "180㎝" },
+    ],
+    description: "キザな毒物お兄さん。基本的にナルシスト。\n創作の中の四人組、四遊の一人。",
+  },
+  {
+    id: "char-07",
+    name: "蘇啓明",
+    reading: "すーちーみん",
+    catchcopy: "四遊の占い師",
+    image: "assets/images/characters/suutiimin.webp",
+    profile: [
+      { label: "年齢", value: "不明" },
+      { label: "身長", value: "165㎝" },
+    ],
+    description: "占いを生業としている半仙。基本的に辛辣。目が怖い。\n創作の中の四人組、四遊の一人。",
+  },
+  {
+    id: "char-08",
+    name: "棺",
+    reading: "ぐぁん",
+    catchcopy: "四遊の死体師",
+    image: "assets/images/characters/hitugi.webp",
+    profile: [
+      { label: "年齢", value: "不明" },
+      { label: "身長", value: "145cm" },
+    ],
+    description: "死体を丁寧に扱う専門職の狐耳の精怪。真面目で几帳面。\n創作の中の四人組、四遊の一人。",
+  },
 
   // ↓ ここに新しいキャラクターを追加していく(コピペ用テンプレート)
   // {
