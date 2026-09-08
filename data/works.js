@@ -58,6 +58,14 @@ const works = [
     comment:
       "OCの華琬を描いたやつ\n華琬かわいい",
   },
+   {
+    id: "work-07",
+    title: "陽光を刺す",
+    year: "2026",
+    image: "assets/images/works/dapple.webp",
+    comment:
+      "これは珍しく題名から思いついた\nこの後院長がスープレックスを決める",
+  },
 
   // ↓ ここに新しい作品を追加していく(コピペ用テンプレート)
   // {
